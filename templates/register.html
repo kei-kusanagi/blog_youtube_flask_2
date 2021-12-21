@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="main-head">
+        <nav>
+            <h1 id="logo">Flask Blog</h1>
+            <ul>
+                <li><a href="{{ url_for('inicio') }}">Inicio</a></li>
+                <li><a href="{{ url_for('login') }}">Ya tienes una cuenta?</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<h1 class="login">REGISTRO</h1>
+<form method="POST" action="">
+    {{ form.hidden_tag() }}
+    {{ form.username }}
+    {{ form.password }}
+    {{ form.submit }}
+</form>
+
+
+</body>
+</html>

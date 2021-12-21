@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="main-head">
+        <nav>
+            <h1 id="logo">Flask Blog</h1>
+            <ul>
+                <li><a href="{{ url_for('inicio') }}">Inicio</a></li>
+                <li><a href="{{ url_for('logout') }}">Cerrar Sesion</a></li>
+            </ul>
+        </nav>
+    </header>
+<h2>ESCRIBE BLOG POSTS</h2>
+
+<form class="login-form" action="{{ url_for('crear_post') }}" method="post">
+    <input type="text" name="titulo" placeholder="titulo">
+    <textarea name="texto" cols="30" rows="10" placeholder="Post"></textarea>
+    <input type="submit" name="submit">
+</form>
+
+
+</body>
+</html>
