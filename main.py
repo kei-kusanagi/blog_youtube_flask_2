@@ -6,13 +6,15 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import  InputRequired, Length, ValidationError
 from flask_bcrypt import Bcrypt
+import os
 
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = r"sqlite:///C:\Users\folkh\Desktop\python-curse\blog_youtube_flask_2\blog.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
+#  r"sqlite:///C:\Users\folkh\Desktop\python-curse\blog_youtube_flask_2\blog.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
-app.config["SECRET_KEY"] = "estoesunallavesecreta"
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 
 bcrypt = Bcrypt(app)
 
