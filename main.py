@@ -9,8 +9,11 @@ from flask_bcrypt import Bcrypt
 import os
 
 
+database_url = os.environ.get("DATABASE_URL")
+
+print(database_url)
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
+app.config["SQLALCHEMY_DATABASE_URI"] = database_url
 #  r"sqlite:///C:\Users\folkh\Desktop\python-curse\blog_youtube_flask_2\blog.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
