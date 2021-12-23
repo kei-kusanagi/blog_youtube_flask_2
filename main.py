@@ -42,6 +42,8 @@ class Post(db.Model):
     fecha = db.Column(db.DateTime, default=datetime.now)
     texto = db.Column(db.String, nullable=False)
 
+db.create_all()
+
 class RegisterForm(FlaskForm):
     username = StringField(validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Username"})
     password = PasswordField(validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Password"})
@@ -125,4 +127,4 @@ def borrar():
 
 if __name__ == "__main__":
     app.run(debug=True)
-    db.create_all()
+
