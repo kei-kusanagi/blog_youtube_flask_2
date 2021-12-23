@@ -47,9 +47,10 @@ db.create_all()
 class RegisterForm(FlaskForm):
     username = StringField(validators=[InputRequired(), Length(min=4, max=30)], render_kw={"placeholder": "Username"})
     password = PasswordField(validators=[InputRequired(), Length(min=4, max=40)], render_kw={"placeholder": "Password"})
-    submit = SubmitField("register")
-    print(SubmitField("register"))
-    # print(submit)
+    submit = SubmitField("Register")
+    exception
+    sqlalchemy.exc.DataError(statement, params, orig, hide_parameters=False, connection_invalidated=False, code=None,
+                             ismulti=None)
     def validate_username(self, username):
         existing_user_username = User.query.filter_by(username=username.data).first()
         if existing_user_username:
