@@ -47,7 +47,6 @@ db.create_all()
 class RegisterForm(FlaskForm):
     username = StringField(validators=[InputRequired(), Length(min=4, max=30)], render_kw={"placeholder": "Username"})
     password = PasswordField(validators=[InputRequired(), Length(min=4, max=40)], render_kw={"placeholder": "Password"})
-    password = password.decode("utf - 8", "ignore")
     submit = SubmitField("Register")
 
     def validate_username(self, username):
