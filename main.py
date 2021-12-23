@@ -11,7 +11,7 @@ import os
 
 database_url = os.environ.get("DATABASE_URL_SQL")
 
-print(database_url)
+# print(database_url)
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = database_url
 #  r"sqlite:///C:\Users\folkh\Desktop\python-curse\blog_youtube_flask_2\blog.db"
@@ -48,7 +48,8 @@ class RegisterForm(FlaskForm):
     username = StringField(validators=[InputRequired(), Length(min=4, max=30)], render_kw={"placeholder": "Username"})
     password = PasswordField(validators=[InputRequired(), Length(min=4, max=40)], render_kw={"placeholder": "Password"})
     submit = SubmitField("Register")
-    print(submit)
+    print(SubmitField("Register"))
+    # print(submit)
     def validate_username(self, username):
         existing_user_username = User.query.filter_by(username=username.data).first()
         if existing_user_username:
