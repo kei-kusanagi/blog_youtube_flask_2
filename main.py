@@ -9,7 +9,7 @@ from flask_bcrypt import Bcrypt
 import os
 
 
-database_url = os.environ.get("DATABASE_URL")
+database_url = os.environ.get("DATABASE_URL_SQL")
 
 print(database_url)
 app = Flask(__name__)
