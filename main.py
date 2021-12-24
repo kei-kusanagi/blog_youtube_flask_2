@@ -43,8 +43,8 @@ class Post(db.Model):
     fecha = db.Column(db.DateTime, default=datetime.now)
     texto = db.Column(db.String, nullable=False)
 
-titulo = request.form.get("Bienvenido")
-texto = request.form.get("Hola, para poder agregar y borrar post deves estar registrado")
+titulo = ("Bienvenido")
+texto = ("Hola, para poder agregar y borrar post deves estar registrado")
 post = Post(titulo=titulo, texto=texto)
 db.session.add(post)
 db.session.commit()
