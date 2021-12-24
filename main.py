@@ -43,11 +43,6 @@ class Post(db.Model):
     fecha = db.Column(db.DateTime, default=datetime.now)
     texto = db.Column(db.String, nullable=False)
 
-titulo = ("Bienvenido")
-texto = ("Hola, para poder agregar y borrar post deves estar registrado")
-post = Post(titulo=titulo, texto=texto)
-db.session.add(post)
-db.session.commit()
 db.create_all()
 
 class RegisterForm(FlaskForm):
@@ -129,7 +124,11 @@ def borrar():
     db.session.commit()
     return redirect("/")
 
-
+titulo = ("Bienvenido")
+texto = ("Hola, para poder agregar y borrar post deves estar registrado")
+post = Post(titulo=titulo, texto=texto)
+db.session.add(post)
+db.session.commit()
 
 if __name__ == "__main__":
     app.run(debug=True)
