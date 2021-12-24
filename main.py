@@ -25,11 +25,6 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "login"
 
-titulo = request.form.get("Bienvenido")
-texto = request.form.get("Hola, para poder agregar y borrar post deves estar registrado")
-post = Post(titulo=titulo, texto=texto)
-db.session.add(post)
-db.session.commit()
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -48,6 +43,11 @@ class Post(db.Model):
     fecha = db.Column(db.DateTime, default=datetime.now)
     texto = db.Column(db.String, nullable=False)
 
+titulo = request.form.get("Bienvenido")
+texto = request.form.get("Hola, para poder agregar y borrar post deves estar registrado")
+post = Post(titulo=titulo, texto=texto)
+db.session.add(post)
+db.session.commit()
 db.create_all()
 
 class RegisterForm(FlaskForm):
