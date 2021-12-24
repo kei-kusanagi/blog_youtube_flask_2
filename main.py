@@ -49,10 +49,10 @@ class RegisterForm(FlaskForm):
     password = PasswordField(validators=[InputRequired(), Length(min=4, max=40)], render_kw={"placeholder": "Password"})
     submit = SubmitField("Register")
 
-    def validate_username(self, username):
-        existing_user_username = User.query.filter_by(username=username.data).first()
-        if existing_user_username:
-            raise ValidationError("Ese nombre de usario ya existe. Favor de poner uno diferente")
+    # def validate_username(self, username):
+    #     existing_user_username = User.query.filter_by(username=username.data).first()
+    #     if existing_user_username:
+    #         raise ValidationError("Ese nombre de usario ya existe. Favor de poner uno diferente")
 
 class LoginForm(FlaskForm):
     username = StringField(validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Username"})
